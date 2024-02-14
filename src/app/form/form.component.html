@@ -1,0 +1,86 @@
+<div class="container-mt5">
+    <p>form works!</p>
+
+    <div class="form-area">
+        <form #f ='ngForm' (submit)="OnSubmit(f)">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class ="form-control" name="fullName"
+                ngModel 
+                #fullName='ngModel'
+                (change) = "getValue(fullName)"
+                required
+                minlength="5"
+                maxlength="10"
+                [ngClass] ="{'is-invalid' : fullName.invalid}">
+                <div class ="alert alert-danger" 
+                    *ngIf="fullName.touched && fullName.invalid">full name is required
+                     </div> 
+
+                <div class="alert alert-danger" *ngIf="fullName.errors?.['required']">name required</div> 
+                <div class="alert alert-danger" *ngIf="fullName.errors?.['minlength']">full name not meeting length </div>
+            </div>
+
+            <div class="form-group">
+                <label for ="email">Email</label>
+                <input class ="form-control" type="email" name="email"
+                ngModel email
+                #email='ngModel'
+                (change) ="getValue(email)"
+                required
+                minlength="5"
+                maxlength="10"
+                [ngClass]="{'is-invalid' : email.invalid}">
+                <!-- <div class ="alert alert-danger" 
+                    *ngIf=" email.touched && email.invalid">
+                     </div>  -->
+                     <div class *ngIf="email.errors?.['required']"> 
+                        <div class ="alert alert-danger" 
+                        *ngIf=" email.touched && email.invalid">required
+                         </div>
+                    </div> 
+                     <div *ngIf="email.errors?.['minlength']"><div class ="alert alert-danger" 
+                        *ngIf=" email.touched && email.invalid">min length required</div>
+                    </div>
+                     
+            </div>
+            <div class="form-group">
+                <label for ="address">Address</label>
+                <textarea type="text" class="form-control" name ="address"
+                ngModel
+                #address='ngModel'
+                (change)="getValue(address)"
+                required
+                minlength="5"
+                maxlength="10"
+                [ngClass]="{'is-invalid' : address.invalid}">
+                </textarea>
+                <!-- <div class ="alert alert-danger" 
+                    *ngIf="address.touched &&address.invalid">
+                     </div> -->
+                     <div *ngIf="address.errors?.['required']">
+                        <div class ="alert alert-danger" 
+                        *ngIf="address.touched &&address.invalid">address is required
+                         </div>
+                    </div> 
+
+                     <div *ngIf="address.errors?.['minlength']">
+                     <div class ="alert alert-danger" 
+                        *ngIf="address.touched &&address.invalid">invalid length
+                         </div>
+                    </div> 
+
+
+            
+            </div>
+           
+            <div class ="form-area">
+                <!-- <form #f ='ngform' (submit)="OnSubmit(f)"> -->
+                <button type = "submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+            </div>
+           
+            </form>
+    </div>
+    
+</div>
+

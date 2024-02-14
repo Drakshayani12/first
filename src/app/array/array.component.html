@@ -1,0 +1,7 @@
+<p>array works!</p>
+
+    <div *ngFor="let item of objArray, let i =index">
+    <h2>{{item.fname}}</h2>
+    <button [routerLink]="['/array',i,item.fname]" [queryParams]="{page:1,orderBy: 0}" routerLinkActive="router-link-active" >click me</button>
+    
+</div>

@@ -1,0 +1,71 @@
+<p>reactive-form works!</p>
+<form #f="ngForm" [formGroup]="form" >
+    <div class ="form-group">
+    <label>Full Name</label>
+    <input 
+    type="text"
+    class="form-control"
+    name="fullName"
+    formControlName="fullName">
+
+    <div class *ngIf="fullName.errors?.['required']"> 
+        <div class ="alert alert-danger" 
+        *ngIf=" fullName.touched && fullName.invalid">required
+         </div>
+    </div> 
+     <div *ngIf="fullName.errors?.['minlength']">
+        <div class ="alert alert-danger" 
+        *ngIf=" fullName.touched && fullName.invalid">min length required</div>
+    </div>
+</div>
+    
+
+    <div class ="form-group">
+        <label>Email</label>
+        <input 
+        email
+        type="text"
+        class="form-control"
+        name="email"
+        formControlName="email">
+
+        <div class *ngIf="email.errors?.['required']"> 
+            <div class ="alert alert-danger" 
+            *ngIf=" email.touched && email.invalid">required
+             </div>
+        </div> 
+        <div class *ngIf="email.errors?.['email']"> 
+            <div class ="alert alert-danger" 
+            *ngIf=" email.touched && email.invalid">give proper email
+             </div>
+        </div> 
+         <div *ngIf="email.errors?.['minlength']">
+            <div class ="alert alert-danger" 
+            *ngIf=" email.touched && email.invalid">min length required</div>
+        </div>
+        </div>
+
+        <div class ="form-group">
+            <label>Address</label>
+            <textarea
+            type="text"
+            class="form-control"
+            name="address"
+            formControlName="address"></textarea>
+            <div *ngIf="address.errors?.['required']">
+                <div class ="alert alert-danger" 
+                *ngIf="address.touched && address.invalid">address is required
+                 </div>
+            </div> 
+
+             <div *ngIf="address.errors?.['minlength'] ">
+             <div class ="alert alert-danger" 
+                *ngIf="address.touched && address.invalid">invalid length
+                 </div>
+            </div> 
+            </div>
+        <div>
+            <button type = "submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+        </div>
+
+</form>

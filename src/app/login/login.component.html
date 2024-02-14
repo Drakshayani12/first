@@ -1,0 +1,99 @@
+<p>login works!</p>
+{{title}}
+<p style="color: {{color}};">Shin chan</p>
+<img src="{{image}}" alt="issue loading">
+<br>
+property binding 
+<!-- <img [src]="image" alt="issue">
+<h1 class="colorred">i am shin chan</h1>
+<h2 [class]="changecolor ? 'firstSelector':'secondSelector'">using two class</h2>
+<h1 [style.color]="changecolor ? 'red':'blue'">color change</h1> 
+property binding
+
+<!-- <button (click)="buttonClick()">one way property binding</button>
+<input type="text" [value]="onewaydate  " (keyup.enter)="onKey2()">
+<br>
+<button (click)="buttonClick()">using ngmodel</button>
+<input type="text" [(ngModel)]="onewaydate" (keyup.enter)="onKey2()">
+<br>
+
+<!-- event binding -->
+<!-- <button (click)="buttonClick()">event binding</button>
+<input type="text" (keyup)="onKeyUp($event)">
+<br>
+
+<button (click)="buttonClick()">Click here</button>
+<input type="text" (keyup.enter)="onKey()">
+<br> -->
+<!--template variable-->
+<!-- <button (click)="buttonClick()">Click here</button>
+<input type="text" (keyup.enter)="onKey1(input.value)" #input> -->
+
+<!-- Between component-->
+<!-- <p>{{varpc}}</p> -->
+
+<!--event binding in child component -->
+<!-- <button (click)='sendMessage()'>EventEmitter</button>
+
+<ul>
+    <li>{{names[0]}}</li>
+    <li>{{names[1]}}</li>
+</ul>
+
+<h2>USING NGFOR</h2>
+
+<ul>
+    <li *ngFor="let name of names">Array is :{{name}}</li>
+</ul>
+
+
+<div *ngIf="objArray.length > 0  else nodata">
+    <ul>
+        <li *ngFor="let item of objArray">{{item | json}}</li>
+    </ul>
+</div>
+<ng-template #nodata> -->
+    <!-- <div *ngIf="objArray.length==0"> -->
+    <!-- <p>no elements</p>
+</ng-template> --> 
+
+
+
+
+
+<!-- <div>
+
+    <button (click)="buttonClick1('form1')">form 1</button>
+    <button (click)="buttonClick1('form2')">form 2</button>
+    <button (click)="buttonClick1('form3')">form 3</button>
+</div>
+<div [ngSwitch]="form">
+    <div *ngSwitchCase="'form1'">you click form1</div>
+    <div *ngSwitchCase="'form2'">you click form2</div>
+    <div *ngSwitchCase="'form3'">you click form3</div>
+    <div *ngSwitchDefault>wrong</div>
+</div> -->
+
+<div *ngIf="form == 'form1'">
+    <p>you clicked form1</p>
+</div>
+<div *ngIf="form == 'form2'">
+    <p>you clicked form2</p>
+</div>
+
+
+<div *ngIf="form == 'form3'">
+    <p>you clicked form3</p>
+</div>
+
+ <h1
+[style.color] = "isActive ? 'red' : 'black'"
+[style.textTransform]= "isActive ? 'uppercase': 'lowercase'"
+>NgclassStyle</h1>
+
+<h1 [ngStyle] ="{color : isActive ? 'red' : 'black',
+textTransform: isActive ? 'uppercase' :'lowercase'}">ngstyle</h1>
+<h1>{{count | number }}</h1>
+<h1>{{dcValue | number: '1.2'}}</h1>
+<h1>{{dcValue | number: '2.0-1'}}</h1>
+<h1>{{price | currency: "USD": false : '2.1-1'}}</h1> 
